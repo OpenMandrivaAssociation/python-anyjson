@@ -1,6 +1,6 @@
 %define	module	anyjson
 %define name	python-%{module}
-%define version	0.3
+%define version	0.3.1
 %define release %mkrel 1
 
 Summary:	Python wrapper for JSON implementations
