@@ -1,7 +1,7 @@
 %define	module	anyjson
 %define name	python-%{module}
-%define version	0.3.1
-%define release %mkrel 1
+%define version	0.3.3
+%define release 1
 
 Summary:	Python wrapper for JSON implementations
 Name:		%{name}
@@ -27,12 +27,13 @@ Originally part of carrot (http://github.com/ask/carrot/)
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} 
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files
 %defattr(-,root,root)
 %doc README
+%py_sitedir/anyjson*
 
