@@ -1,20 +1,19 @@
 %define	module	anyjson
-%define name	python-%{module}
-%define version	0.3.3
-%define release 1
 
 Summary:	Python wrapper for JSON implementations
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Source0:	http://pypi.python.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz
+Name:		python-%{module}
+Version:	0.3.3
+Release:	1
+Source0:	http://pypi.python.org/packages/source/a/anyjson/anyjson-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		http://bitbucket.org/runeh/anyjson
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
-Suggests:	python-json, python-cjson, python-simplejson
-BuildRequires:	python-devel, python-setuptools
+Suggests:	python-json
+Suggests:	python-cjson
+Suggests:	python-simplejson
+BuildRequires:	python-devel
+BuildRequires:	python-setuptools
 
 %description
 Anyjson loads whichever is the fastest JSON module installed and provides
@@ -26,14 +25,30 @@ Originally part of carrot (http://github.com/ask/carrot/)
 %setup -q -n %{module}-%{version}
 
 %install
-%__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} 
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+sed -i 's/.*egg-info$//' FILE_LIST
 
-%clean
-%__rm -rf %{buildroot}
-
-%files
-%defattr(-,root,root)
+%files -f FILE_LIST
 %doc README
-%py_sitedir/anyjson*
+
+
+
+%changelog
+* Mon Mar 28 2011 Lev Givon <lev@mandriva.org> 0.3.1-1mdv2011.0
++ Revision: 648693
+- Update to 0.3.1.
+
+* Wed Dec 08 2010 Lev Givon <lev@mandriva.org> 0.3-1mdv2011.0
++ Revision: 616287
+- Update to 0.3.
+
+* Tue Nov 09 2010 Lev Givon <lev@mandriva.org> 0.2.5-1mdv2011.0
++ Revision: 595458
+- Update to 0.2.5.
+
+* Mon Nov 08 2010 Lev Givon <lev@mandriva.org> 0.2.0-1mdv2011.0
++ Revision: 595123
+- import python-anyjson
+
+
 
