@@ -3,7 +3,7 @@
 Summary:    Python wrapper for JSON implementations
 Name:       python-%{module}
 Version:    0.3.3
-Release:    3
+Release:    4
 Source0:    http://pypi.python.org/packages/source/a/anyjson/anyjson-%{version}.tar.gz
 License:    BSD
 Group:      Development/Python
