@@ -11,9 +11,9 @@ Url:        http://bitbucket.org/runeh/anyjson
 Suggests:   python-json
 Suggests:   python-cjson
 Suggests:   python-simplejson
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python3-devel
-BuildRequires:	python-distribute
+BuildRequires:	python2-distribute
 BuildRequires:	python3-distribute
 BuildArch: noarch
 %rename	python3-anyjson
