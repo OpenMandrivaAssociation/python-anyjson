@@ -3,7 +3,7 @@
 Summary:    Python wrapper for JSON implementations
 Name:       python-%{module}
 Version:    0.3.3
-Release:    4
+Release:    5
 Source0:    http://pypi.python.org/packages/source/a/anyjson/anyjson-%{version}.tar.gz
 License:    BSD
 Group:      Development/Python
@@ -16,6 +16,7 @@ BuildRequires:  python3-devel
 BuildRequires:	python-distribute
 BuildRequires:	python3-distribute
 BuildArch: noarch
+%rename	python3-anyjson
 
 %description
 Anyjson loads whichever is the fastest JSON module installed and provides
@@ -23,12 +24,12 @@ a uniform API regardless of which JSON implementation is used.
 
 Originally part of carrot (http://github.com/ask/carrot/)
 
-%package -n python3-anyjson
+%package -n python2-anyjson
 Summary:        Python wrapper for JSON implementations
 Group:          Development/Python
-Requires:       python3
+Requires:       python2
  
-%description -n python3-anyjson
+%description -n python2-anyjson
 Anyjson loads whichever is the fastest JSON module installed and provides
 a uniform API regardless of which JSON implementation is used.
 
@@ -42,7 +43,7 @@ cp -r python2 python3
 
 %build
 pushd python2
-%{__python} setup.py build
+%{__python2} setup.py build
 popd
 
 pushd python3
@@ -51,7 +52,7 @@ popd
 
 %install
 pushd python2
-%{__python} setup.py install --root=%{buildroot} 
+%{__python2} setup.py install --root=%{buildroot} 
 popd
 
 pushd python3
@@ -59,11 +60,11 @@ pushd python3
 popd
 
 %files -n python-anyjson
-%doc python2/README 
-%{py_puresitedir}/*.egg-info
-%{py_puresitedir}/%{module}
-
-%files -n python3-anyjson
-%doc python3/README
+%doc python3/README 
 %{py3_puresitedir}/*.egg-info
 %{py3_puresitedir}/%{module}
+
+%files -n python2-anyjson
+%doc python2/README
+%{py2_puresitedir}/*.egg-info
+%{py2_puresitedir}/%{module}
