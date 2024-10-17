@@ -7,7 +7,7 @@ Release:    5
 Source0:    http://pypi.python.org/packages/source/a/anyjson/anyjson-%{version}.tar.gz
 License:    BSD
 Group:      Development/Python
-Url:        http://bitbucket.org/runeh/anyjson
+Url:        https://bitbucket.org/runeh/anyjson
 Suggests:   python-json
 Suggests:   python-cjson
 Suggests:   python-simplejson
